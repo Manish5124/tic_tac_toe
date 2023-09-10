@@ -47,258 +47,396 @@ public class tictactoe {
 //               corner cases
 //               System.out.println(" player is "+player+" ");
 
-               if( (board[0][0]=='0' && board[2][0]=='0') && board[1][0]==' ' )
-               {
-                   row=1;
-                   col=0;
 
-               }
-             else  if( board[2][0]=='0'  && board[2][2]=='0' && board[2][1]==' ' )
-               {
-                   row=2;
-                   col=1;
+//               for(int i=0;i<3;i++)
+//               {
+//                   if((board[i][0]=='0' && board[i][1]=='0') && board[i][2]==' ')
+//                   {
+//                     row=i;
+//                     col=2;
+//                   }
+//               }
 
-               }
-             else  if( board[2][2]=='0'  && board[0][2]=='0' && board[1][2]==' ' )
-               {
-                   row=1;
-                   col=2;
+                    boolean flag=false;
+                   for (int i = 0; i < 3; i++) {
+                       // Check rows and columns
+                       if ((board[i][0] == '0' && board[i][1] == '0' && board[i][2] == ' ') ) {
+//                           if (board[i][2] == ' ') {
+                               row = i;
+                               col = 2;
+                           flag=true;
+                               break;
 
-               }
-               else if ( board[0][2]=='0'  && board[0][0]=='0' && board[0][1]==' ' )
-               {
-                   row=0;
-                   col=1;
-               }
-//               diogoanl cases
-              else if((board[0][0]=='0'  && board[2][2]=='0' && board[1][1]==' ' ) || (board[2][0]=='0'  && board[0][2]=='0' && board[1][1]==' ' ))
-               {
-                   row= 1;
-                   col=1;
-               }
-               else if(board[0][0]=='0'  && board[1][1]=='0' && board[2][2]==' ')
-               {
-                    row=2;
-                    col=2;
-               }
-               else if(board[2][0]=='0'  && board[1][1]=='0' && board[0][2]==' ')
-               {
-                   row=0;
-                   col=2;
-               }
-               else if(board[2][2]=='0'  && board[1][1]=='0'  && board[0][0]==' ')
-               {
-                   row=0;
-                   col=0;
-               }
-               else if(board[0][2]=='0'  && board[1][1]=='0' && board[2][0]==' ' )
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[1][0]=='0' && board[1][2]=='0' && board[1][1]==' ' )
-               {
-                   row=1;
-                   col=1;
-               }
-               else if(board[0][1]=='0' && board[2][1]=='0' && board[1][1]==' ')
-               {
-                   row=1;
-                   col=1;
-               }
-//               row col cases
-               else  if(board[0][0]=='0'  && board[0][1]=='0' && board[0][2]==' ' )
-               {
-                   row=0;
-                   col=2;
-               }
-               else  if(board[0][1]=='0'  && board[0][2]=='0' && board[0][0]==' ' )
-               {
-                   row=0;
-                   col=0;
-               }
-                else  if(board[1][0]=='0'  && board[1][1]=='0' && board[1][2]==' ')
-               {
-                   row=1;
-                   col=2;
-               }
-               else  if(board[1][1]=='0'  && board[1][2]=='0'  && board[1][0]==' ')
-               {
-                   row=1;
-                   col=0;
-               }
-               else  if(board[2][0]=='0'  && board[2][1]=='0' && board[2][2]==' ')
-               {
-                   row=2;
-                   col=2;
-               }
-               else if(board[2][1]=='0'  && board[2][2]=='0' && board[2][0]==' ' )
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[0][0]=='0'  && board[1][0]=='0' && board[2][0]==' ' )
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[1][0]=='0'  && board[2][0]=='0' && board[0][0]==' ')
-               {
-                   row=0;
-                   col=0;
-               }
-               else if(board[0][1]=='0'  && board[1][1]=='0' && board[2][0]==' ')
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[1][1]=='0'  && board[2][1]=='0'  && board[0][1]==' ')
-               {
-                   row=0;
-                   col=1;
-               }
-               else if(board[0][2]=='0'  && board[1][2]=='0' && board[2][2]==' ')
-               {
-                   row=2;
-                   col=2;
-               }
-               else if(board[1][2]=='0'  && board[2][2]=='0' && board[0][2]==' ' )
-               {
-                   row=0;
-                   col=2;
-               }
-            else  if( board[0][0]=='X' && board[2][0]=='X' && board[1][0]==' ')
-               {
-                   row=1;
-                   col=0;
-                   System.out.println("board[0][0]=='0' && board[2][0]=='0'");
-               }
-               else  if( board[2][0]=='X'  && board[2][2]=='X'  && board[2][1]==' ')
-               {
-                   row=2;
-                   col=1;
-                   System.out.println("board[2][0]=='0'  && board[2][2]=='0'");
-               }
-               else  if( board[2][2]=='X'  && board[0][2]=='X' && board[1][2]==' ')
-               {
-                   row=1;
-                   col=2;
+                           }
+                       else if (board[0][i] == '0' && board[1][i] == '0' && board[2][i] == ' ') {
+                               row = 2;
+                               col = i;
+                           flag=true;
+                               break;
 
-               }
-               else if ( board[0][2]=='X'  && board[0][0]=='X' && board[0][1]==' ' )
-               {
-                   row=0;
-                   col=1;
-               }
-//               diogoanl cases
-               else if((board[0][0]=='X'  && board[2][2]=='X' && board[1][1]==' ' ) || (board[2][0]=='X'  && board[0][2]=='X' && board[1][1]==' '))
-               {
-                   row= 1;
-                   col=1;
-               }
-               else if(board[0][0]=='X'  && board[1][1]=='X' && board[2][2]==' ' )
-               {
-                   row=2;
-                   col=2;
-               }
-               else if(board[2][0]=='X'  && board[1][1]=='X' && board[0][2]==' ' )
-               {
-                   row=0;
-                   col=2;
-               }
-               else if(board[2][2]=='X'  && board[1][1]=='X' && board[0][0]==' ')
-               {
-                   row=0;
-                   col=0;
-               }
-               else if(board[0][2]=='X'  && board[1][1]=='X' && board[2][0]==' ' )
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[1][0]=='X' && board[1][2]=='X' && board[1][1]==' ' )
-               {
-                   row=1;
-                   col=1;
-               }
-               else if(board[0][1]=='X' && board[2][1]=='X' && board[1][1]==' ')
-               {
-                   row=1;
-                   col=1;
-               }
-//               row col cases
-               else  if(board[0][0]=='X'  && board[0][1]=='X' && board[0][2]==' ' )
-               {
-                   row=0;
-                   col=2;
-               }
-               else  if(board[0][1]=='X'  && board[0][2]=='X' && board[0][0]==' ' )
-               {
-                   row=0;
-                   col=0;
-               }
-               else  if(board[1][0]=='X'  && board[1][1]=='X' && board[1][2]==' ' )
-               {
-                   row=1;
-                   col=2;
-               }
-               else  if(board[1][1]=='X'  && board[1][2]=='X' && board[1][0]==' ')
-               {
-                   row=1;
-                   col=0;
-               }
-               else  if(board[2][0]=='X'  && board[2][1]=='X' && board[2][2]==' ' )
-               {
-                   row=2;
-                   col=2;
-               }
-               else if(board[2][1]=='X'  && board[2][2]=='X' && board[2][0]==' ')
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[0][0]=='X'  && board[1][0]=='X' && board[2][0]==' ')
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[1][0]=='X'  && board[2][0]=='X' && board[0][0]==' ' )
-               {
-                   row=0;
-                   col=0;
-               }
-               else if(board[0][1]=='X'  && board[1][1]=='X' && board[2][0]==' ')
-               {
-                   row=2;
-                   col=0;
-               }
-               else if(board[1][1]=='X'  && board[2][1]=='X' && board[0][1]==' ')
-               {
-                   row=0;
-                   col=1;
-               }
-               else if(board[0][2]=='X'  && board[1][2]=='X' && board[2][2]==' ')
-               {
-                   row=2;
-                   col=2;
-               }
-               else if(board[1][2]=='X'  && board[2][2]=='X' && board[0][2]==' ' )
-               {
-                   row=0;
-                   col=2;
-               }
-               else {
-                    do {
-                        int prevrow = row;
-                        int prevcol = col;
-                        row = prevnotequal(prevrow);
-                        col = prevnotequal(prevcol);
-                    }while(board[row][col] != ' ');
-                }
+                           }
+                       else if ((board[i][0] == 'X' && board[i][1] == 'X' && board[i][2] == ' ') ) {
+//                           if (board[i][2] == ' ') {
+                               row = i;
+                               col = 2;
+                           flag=true;
+                               break;
+                           }
+                       else if (board[0][i] == 'X' && board[1][i] == 'X' && board[2][i] == ' ') {
+                               row = 2;
+                               col = i;
+                           flag=true;
+                               break;
+                           }
+                       }
 
+//                       }
+//                        if ((board[i][0] == 'X' && board[i][1] == 'X' && board[i][2] == ' ') ||
+//                               (board[0][i] == 'X' && board[1][i] == 'X' && board[2][i] == ' ')) {
+//                           row = (board[i][2] == ' ') ? i : (board[2][i] == ' ') ? 2 : -1;
+//                           col = (board[i][2] == ' ') ? 2 : (board[2][i] == ' ') ? i : -1;
+//                           break;
+//                       }
+                        if(flag)
+                        {
 
+                        }
+                        else if (board[0][0] == '0' && ((board[0][2] == '0' && board[0][1] == ' ') || board[2][0] == '0' && board[1][0] == ' ')) {
+                       row = (board[0][1] == ' ') ? 0 : (board[1][0] == ' ') ? 1 : -1;
+                       col = (board[0][1] == ' ') ? 1 : (board[1][0] == ' ') ? 0 : -1;
+                   }
+                   else if (board[2][2] == '0' && ((board[2][0] == '0' && board[2][1] == ' ') || board[0][2] == '0' && board[1][2] == ' ')) {
+                       row = (board[2][1] == ' ') ? 2 : (board[1][2] == ' ') ? 1 : -1;
+                       col = (board[2][1] == ' ') ? 1 : (board[1][2] == ' ') ? 2 : -1;
+                   } else if ((board[0][1] == '0' && board[2][1] == '0' && board[1][1] == ' ')
+                           || (board[1][0] == '0' && board[1][2] == '0' && board[1][1] == ' ')) {
+                       row = 1;
+                       col = 1;
+//                            break;
+                   } else if ((board[0][0] == '0' && board[2][2] == '0' && board[1][1] == ' ')
+                           || (board[2][0] == '0' && board[0][2] == '0' && board[1][1] == ' ')) {
+                       row = 1;
+                       col = 1;
+//                            break;
+                   } else if ((board[0][0] == '0' && board[1][1] == '0' && board[2][2] == ' ') ||
+                           (board[0][2] == '0' && board[1][1] == '0' && board[2][0] == ' ')) {
+                       row = (board[2][2] == ' ' || board[2][0] == ' ') ? 2 : -1;
+                       col = (board[2][2] == ' ') ? 2 : (board[2][0] == ' ') ? 0 : -1;
+//                            break;
+                   } else if ((board[2][0] == '0' && board[1][1] == '0' && board[0][2] == ' ') ||
+                           (board[2][2] == '0' && board[1][1] == '0' && board[0][0] == ' ')) {
+                       row = (board[0][2] == ' ' || board[0][0] == ' ') ? 0 : -1;
+                       col = (board[0][2] == ' ') ? 2 : (board[2][0] == ' ') ? 0 : -1;
+//                            break;
+                   }
+                   else  if (board[0][0] == 'X' && ((board[0][2] == 'X' && board[0][1] == ' ') || board[2][0] == 'X' && board[1][0] == ' ')) {
+                       row = (board[0][1] == ' ') ? 0 : (board[1][0] == ' ') ? 1 : -1;
+                       col = (board[0][1] == ' ') ? 1 : (board[1][0] == ' ') ? 0 : -1;
+                   }
+                   else if (board[2][2] == 'X' && ((board[2][0] == 'X' && board[2][1] == ' ') || board[0][2] == 'X' && board[1][2] == ' ')) {
+                       row = (board[2][1] == ' ') ? 2 : (board[1][2] == ' ') ? 1 : -1;
+                       col = (board[2][1] == ' ') ? 1 : (board[1][2] == ' ') ? 2 : -1;
+                   } else if ((board[0][1] == 'X' && board[2][1] == 'X' && board[1][1] == ' ')
+                           || (board[1][0] == 'X' && board[1][2] == 'X' && board[1][1] == ' ')) {
+                       row = 1;
+                       col = 1;
+//                            break;
+                   } else if ((board[0][0] == 'X' && board[2][2] == 'X' && board[1][1] == ' ')
+                           || (board[2][0] == 'X' && board[0][2] == 'X' && board[1][1] == ' ')) {
+                       row = 1;
+                       col = 1;
+//                            break;
+                   } else if ((board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == ' ') ||
+                           (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == ' ')) {
+                       row = (board[2][2] == ' ' || board[2][0] == ' ') ? 2 : -1;
+                       col = (board[2][2] == ' ') ? 2 : (board[2][0] == ' ') ? 0 : -1;
+//                            break;
+                   } else if ((board[2][0] == 'X' && board[1][1] == 'X' && board[0][2] == ' ') ||
+                           (board[2][2] == 'X' && board[1][1] == 'X' && board[0][0] == ' ')) {
+                       row = (board[0][2] == ' ' || board[0][0] == ' ') ? 0 : -1;
+                       col = (board[0][2] == ' ') ? 2 : (board[2][0] == ' ') ? 0 : -1;
+//                            break;
+                   }
+                   else {
 
+                       do {
+                           int prevrow = row;
+                           int prevcol = col;
+                           row = prevnotequal(prevrow);
+                           col = prevnotequal(prevcol);
+                       } while (board[row][col] != ' ');
+
+                   }
            }
+
+//                if (row == -1) {
+//                   for (int i = 0; i < 3; i++) {
+//                       for (int j = 0; j < 3; j++) {
+//                           // Check for empty cells
+//                           if (board[i][j] == ' ') {
+//                               row = i;
+//                               col = j;
+//                               break;
+//                           }
+//                       }
+//                       if (row != -1) {
+//                           break;
+//                       }
+//                   }
+//               }
+
+//               if( (board[0][0]=='0' && board[2][0]=='0') && board[1][0]==' ' )
+//               {
+//                   row=1;
+//                   col=0;
+//
+//               }
+//             else  if( board[2][0]=='0'  && board[2][2]=='0' && board[2][1]==' ' )
+//               {
+//                   row=2;
+//                   col=1;
+//
+//               }
+//             else  if( board[2][2]=='0'  && board[0][2]=='0' && board[1][2]==' ' )
+//               {
+//                   row=1;
+//                   col=2;
+//
+//               }
+//               else if ( board[0][2]=='0'  && board[0][0]=='0' && board[0][1]==' ' )
+//               {
+//                   row=0;
+//                   col=1;
+//               }
+////               diogoanl cases
+//              else if((board[0][0]=='0'  && board[2][2]=='0' && board[1][1]==' ' ) || (board[2][0]=='0'  && board[0][2]=='0' && board[1][1]==' ' ))
+//               {
+//                   row= 1;
+//                   col=1;
+//               }
+//               else if(board[0][0]=='0'  && board[1][1]=='0' && board[2][2]==' ')
+//               {
+//                    row=2;
+//                    col=2;
+//               }
+//               else if(board[2][0]=='0'  && board[1][1]=='0' && board[0][2]==' ')
+//               {
+//                   row=0;
+//                   col=2;
+//               }
+//               else if(board[2][2]=='0'  && board[1][1]=='0'  && board[0][0]==' ')
+//               {
+//                   row=0;
+//                   col=0;
+//               }
+//               else if(board[0][2]=='0'  && board[1][1]=='0' && board[2][0]==' ' )
+//               {
+//                   row=2;
+//                   col=0;
+//               }
+//               else if(board[1][0]=='0' && board[1][2]=='0' && board[1][1]==' ' )
+//               {
+//                   row=1;
+//                   col=1;
+//               }
+//               else if(board[0][1]=='0' && board[2][1]=='0' && board[1][1]==' ')
+//               {
+//                   row=1;
+//                   col=1;
+//               }
+////               row col cases
+//               else  if(board[0][0]=='0'  && board[0][1]=='0' && board[0][2]==' ' )
+//               {
+//                   row=0;
+//                   col=2;
+//               }
+//               else  if(board[0][1]=='0'  && board[0][2]=='0' && board[0][0]==' ' )
+//               {
+//                   row=0;
+//                   col=0;
+//               }
+//                else  if(board[1][0]=='0'  && board[1][1]=='0' && board[1][2]==' ')
+//               {
+//                   row=1;
+//                   col=2;
+//               }
+//               else  if(board[1][1]=='0'  && board[1][2]=='0'  && board[1][0]==' ')
+//               {
+//                   row=1;
+//                   col=0;
+//               }
+//               else  if(board[2][0]=='0'  && board[2][1]=='0' && board[2][2]==' ')
+//               {
+//                   row=2;
+//                   col=2;
+//               }
+//               else if(board[2][1]=='0'  && board[2][2]=='0' && board[2][0]==' ' )
+//               {
+//                   row=2;
+//                   col=0;
+//               }
+//               else if(board[0][0]=='0'  && board[1][0]=='0' && board[2][0]==' ' )
+//               {
+//                   row=2;
+//                   col=0;
+//               }
+//               else if(board[1][0]=='0'  && board[2][0]=='0' && board[0][0]==' ')
+//               {
+//                   row=0;
+//                   col=0;
+//               }
+//               else if(board[0][1]=='0'  && board[1][1]=='0' && board[2][1]==' ')
+//               {
+//                   row=2;
+//                   col=1;
+//               }
+//               else if(board[1][1]=='0'  && board[2][1]=='0'  && board[0][1]==' ')
+//               {
+//                   row=0;
+//                   col=1;
+//               }
+//               else if(board[0][2]=='0'  && board[1][2]=='0' && board[2][2]==' ')
+//               {
+//                   row=2;
+//                   col=2;
+//               }
+//               else if(board[1][2]=='0'  && board[2][2]=='0' && board[0][2]==' ' )
+//               {
+//                   row=0;
+//                   col=2;
+//               }
+//            else  if( board[0][0]=='X' && board[2][0]=='X' && board[1][0]==' ')
+//               {
+//                   row=1;
+//                   col=0;
+//
+//               }
+//               else  if( board[2][0]=='X'  && board[2][2]=='X'  && board[2][1]==' ')
+//               {
+//                   row=2;
+//                   col=1;
+////                   System.out.println("board[2][0]=='0'  && board[2][2]=='0'");
+//               }
+//               else  if( board[2][2]=='X'  && board[0][2]=='X' && board[1][2]==' ')
+//               {
+//                   row=1;
+//                   col=2;
+//
+//               }
+//               else if ( board[0][2]=='X'  && board[0][0]=='X' && board[0][1]==' ' )
+//               {
+//                   row=0;
+//                   col=1;
+//               }
+////               diogoanl cases
+//               else if((board[0][0]=='X'  && board[2][2]=='X' && board[1][1]==' ' ) || (board[2][0]=='X'  && board[0][2]=='X' && board[1][1]==' '))
+//               {
+//                   row= 1;
+//                   col=1;
+//               }
+//               else if(board[0][0]=='X'  && board[1][1]=='X' && board[2][2]==' ' )
+//               {
+//                   row=2;
+//                   col=2;
+//               }
+//               else if(board[2][0]=='X'  && board[1][1]=='X' && board[0][2]==' ' )
+//               {
+//                   row=0;
+//                   col=2;
+//               }
+//               else if(board[2][2]=='X'  && board[1][1]=='X' && board[0][0]==' ')
+//               {
+//                   row=0;
+//                   col=0;
+//               }
+//               else if(board[0][2]=='X'  && board[1][1]=='X' && board[2][0]==' ' )
+//               {
+//                   row=2;
+//                   col=0;
+//               }
+//               else if(board[1][0]=='X' && board[1][2]=='X' && board[1][1]==' ' )
+//               {
+//                   row=1;
+//                   col=1;
+//               }
+//               else if(board[0][1]=='X' && board[2][1]=='X' && board[1][1]==' ')
+//               {
+//                   row=1;
+//                   col=1;
+//               }
+////               row col cases
+//               else  if(board[0][0]=='X'  && board[0][1]=='X' && board[0][2]==' ' )
+//               {
+//                   row=0;
+//                   col=2;
+//               }
+//               else  if(board[0][1]=='X'  && board[0][2]=='X' && board[0][0]==' ' )
+//               {
+//                   row=0;
+//                   col=0;
+//               }
+//               else  if(board[1][0]=='X'  && board[1][1]=='X' && board[1][2]==' ' )
+//               {
+//                   row=1;
+//                   col=2;
+//               }
+//               else  if(board[1][1]=='X'  && board[1][2]=='X' && board[1][0]==' ')
+//               {
+//                   row=1;
+//                   col=0;
+//               }
+//               else  if(board[2][0]=='X'  && board[2][1]=='X' && board[2][2]==' ' )
+//               {
+//                   row=2;
+//                   col=2;
+//               }
+//               else if(board[2][1]=='X'  && board[2][2]=='X' && board[2][0]==' ')
+//               {
+//                   row=2;
+//                   col=0;
+//               }
+//               else if(board[0][0]=='X'  && board[1][0]=='X' && board[2][0]==' ')
+//               {
+//                   row=2;
+//                   col=0;
+//               }
+//               else if(board[1][0]=='X'  && board[2][0]=='X' && board[0][0]==' ' )
+//               {
+//                   row=0;
+//                   col=0;
+//               }
+//               else if(board[0][1]=='X'  && board[1][1]=='X' && board[2][1]==' ')
+//               {
+//                   row=2;
+//                   col=1;
+//               }
+//               else if(board[1][1]=='X'  && board[2][1]=='X' && board[0][1]==' ')
+//               {
+//                   row=0;
+//                   col=1;
+//               }
+//               else if(board[0][2]=='X'  && board[1][2]=='X' && board[2][2]==' ')
+//               {
+//                   row=2;
+//                   col=2;
+//               }
+//               else if(board[1][2]=='X'  && board[2][2]=='X' && board[0][2]==' ' )
+//               {
+//                   row=0;
+//                   col=2;
+//               }
+//               else {
+//                    do {
+//                        int prevrow = row;
+//                        int prevcol = col;
+//                        row = prevnotequal(prevrow);
+//                        col = prevnotequal(prevcol);
+//                    }while(board[row][col] != ' ');
+//                }
+//
+
+
+//           }
 
 
             if(board[row][col]==' ') {
@@ -335,7 +473,7 @@ public class tictactoe {
         while(true)
         {
             int randomVal = random.nextInt(3); // Generates a random number between 0 (inclusive) and 4 (exclusive)
-            int randomCol = random.nextInt(3);
+//            int randomCol = random.nextInt(3);
             if(val !=randomVal)
             {
              val = randomVal;
